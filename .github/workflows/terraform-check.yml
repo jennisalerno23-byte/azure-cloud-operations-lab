@@ -1,0 +1,34 @@
+name: Terraform Check
+
+on:
+  push:
+    paths:
+      - "**/*.tf"
+      - ".github/workflows/terraform-check.yml"
+
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init -backend=false
+
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      - name: Create temporary SSH key
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+
+      - name: Terraform Validate
+        run: terraform validate
