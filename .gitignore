@@ -1,0 +1,18 @@
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+crash.log
+
+# Local environment files
+.env
+.env.*
+
+# SSH / private key files
+id_rsa
+id_rsa.pub
+*.pem
+*.key
