@@ -288,7 +288,7 @@ The total observed lab cost remained below USD 1 while practicing with virtual m
 ## Repository Structure
 
 ```text
-cloud-operations-lab/
+azure-cloud-operations-lab/
 ├── .github/
 │   └── workflows/
 │       └── terraform-check.yml
@@ -306,8 +306,8 @@ cloud-operations-lab/
 ├── COMMANDS.md
 ├── README.md
 ├── health_check.py
-└── main.tf
-├── terraform.tfvars.example
+├── main.tf
+└── terraform.tfvars.example
 ```
 
 - `main.tf` contains the Azure infrastructure definition.
